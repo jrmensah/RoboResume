@@ -82,7 +82,6 @@ public class Main {
                 System.out.println(" " + "," + college.year);
             }
 
-            while (answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("n")) {
                 do {
                     System.out.println("Enter the job title");
                     job.title = keyboard.nextLine();
@@ -115,9 +114,7 @@ public class Main {
                     System.out.println(job.duty2);
 
                 }
-            }
 
-                while(answer.equalsIgnoreCase("y")&& !answer.equalsIgnoreCase("n"))
             do {
                 System.out.println("Enter your first skill");
                 skill.skill1 = keyboard.nextLine();
@@ -147,6 +144,9 @@ public class Main {
             }
 
             // Print all variables
+            System.out.println(person.getName());
+            System.out.println(person.getEmail());
+            System.out.println("");
             System.out.println("Education");
             System.out.print(college.degree);
             System.out.print(" " + "in" + " ");
@@ -164,7 +164,6 @@ public class Main {
             System.out.println(skill.skill1);
             System.out.println(skill.skill2);
             System.out.println(skill.skill3);
-
 
         } while (answer.equalsIgnoreCase("y"));
     }
