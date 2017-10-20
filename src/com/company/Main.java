@@ -6,6 +6,7 @@ import com.company.skills.Skill;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
 
 public class Main {
 
@@ -16,97 +17,148 @@ public class Main {
         Scanner keyboard = new Scanner(System.in);
 
 
-        ArrayList<College> Education = new ArrayList <College>();
-        ArrayList<Job> Experience = new ArrayList <Job>();
-        ArrayList<Skill>Expertise = new ArrayList <Skill>();
+        ArrayList<College> Education = new ArrayList<College>();
+        ArrayList<Job> Experience = new ArrayList<Job>();
+        ArrayList<Skill> Expertise = new ArrayList<Skill>();
 
 
         int size = 20;
         int counter = 0;
-        String answer = "";
         College college = new College();
         Job job = new Job();
-        Skill skill;
+        Skill skill = new Skill();
+        String answer = "y";
+
         // Create a new person for resume
         Person person = new Person();
 
+        //Prompt user toenter values into the program
+        System.out.println("Welcome to the RoboResume!");
+        System.out.println("Please enter your name, email, education, work experiences and skills with the rating below");
 
+        System.out.println("Enter your Name:");
+        person.setName(keyboard.nextLine());
+        System.out.println("Enter your Email:");
+        person.setName(keyboard.nextLine());
+        System.out.println("Education Achievements:");
+        System.out.println("");
 
+        if (answer.equalsIgnoreCase("y")) {
+            System.out.println("Enter the Degree of College");
+            college.degree = keyboard.nextLine();
+            System.out.println("Enter Major at College:");
+            college.major = keyboard.nextLine();
+            System.out.println("Enter Name of College:");
+            college.name = keyboard.nextLine();
+            System.out.println("Enter the year of Graduation");
+            college.year = keyboard.nextInt();
+            Education.add(college);
 
-        do {
-            System.out.println("Welcome to the RoboResume!");
-            System.out.println("Please enter your name, email, education, work experiences and skills with the rating below");
-            do {
-                System.out.println("Enter your Name:");
-                person.setName(keyboard.nextLine());
-                System.out.println("Enter your Email:");
-                person.setName(keyboard.nextLine());
-                System.out.println("Education Achievements:");
-                System.out.println("Do you want to add a school?");
+            //Print all college entries
+            System.out.println("Here are the education achievements you entered:");
+
+            for (College colleges : Education) {
+                System.out.print(college.degree);
+                System.out.print(" " + "in" + " ");
+                System.out.println(college.major);
+                System.out.print(college.name);
+                System.out.println(" " + "," + college.year);
+            }
+        }
+            while(answer.equalsIgnoreCase("y"))
+            {
+                System.out.println("Do you want to add a work experience?");
                 answer = keyboard.nextLine();
-                if (!answer.equalsIgnoreCase("y")) {
-                    System.out.println("Invalid option. Please enter 'Y' or 'N' ");
-                } else if (answer.equalsIgnoreCase("y")) {
-                    System.out.println("Enter the Degree of College");
-                    college.degree = keyboard.nextLine();
-                    System.out.println("Enter Major at College:");
-                    college.major = keyboard.nextLine();
-                    System.out.println("Enter Name of College:");
-                    college.name = keyboard.nextLine();
-                    System.out.println("Enter the year of Graduation");
-                    college.year = keyboard.nextInt();
-                    Education.add(college);
 
-                    System.out.println("Here are the education achievements you entered:");
+            if (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("n")) {
+                System.out.println("Invalid option. Please enter 'Y' or 'N' ");
+            }
+            if (answer.equalsIgnoreCase("y")) {
 
-                    for (College colleges : Education) {
-                        System.out.print(college.degree);
-                        System.out.print(" " + "in" + " ");
-                        System.out.println(college.major);
-                        System.out.print(college.name);
-                        System.out.println(" " + "," + college.year);
-                    }
-                    System.out.println("Do you want to add another school?");
+                System.out.println("Enter the title of job:");
+                job.title = keyboard.nextLine();
+                System.out.println("Enter the place of job:");
+                job.place = keyboard.nextLine();
+                System.out.println("Enter the date you worked at the job:");
+                job.date = keyboard.nextLine();
+                System.out.println("Enter the first duty of work");
+                job.duty1 = keyboard.nextLine();
+                System.out.println("Enter the second duty of work");
+                job.duty2 = keyboard.nextLine();
+                Experience.add(job);
+
+                System.out.println("Here are the work experiences you entered:");
+
+                for (Job jobs : Experience) {
+                    System.out.print(job.title);
+                    System.out.print(job.place + " " + "," + " " + " " + job.date);
+                    System.out.println(job.duty1);
+                    System.out.println(job.duty2);
+
+                }
+            }
+
+                while(!answer.equalsIgnoreCase("n"))
+                {
+                    System.out.println("Do you want to add a work experience?");
                     answer = keyboard.nextLine();
-                    if (!answer.equalsIgnoreCase("y"))
-                    {
+                }
+                keyboard.nextLine();
 
-                        System.out.println("Do you want to add a work experience?");
-                        answer = keyboard.nextLine();
-                    }
-                    if (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("n")) {
-                        System.out.println("Invalid option. Please enter 'Y' or 'N' ");
-                    } else if (answer.equalsIgnoreCase("y")) {
+            }while(!answer.equalsIgnoreCase("n"))
+            {
+                System.out.println("Do you want to add a skill?");
+                answer = keyboard.nextLine();
+            }if (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("n")) {
+                System.out.println("Invalid option. Please enter 'Y' or 'N' ");
+            }
+            if (answer.equalsIgnoreCase("y")) {
 
-                        System.out.println("Enter the title of job:");
-                        job.title = keyboard.nextLine();
-                        System.out.println("Enter the place of job:");
-                        job.place = keyboard.nextLine();
-                        System.out.println("Enter the date you worked at the job:");
-                        job.date = keyboard.nextLine();
-                        System.out.println("Enter the first duty of work");
-                        job.duty1 = keyboard.nextLine();
-                        System.out.println("Enter the second duty of work");
-                        job.duty2 = keyboard.nextLine();
-                        Experience.add(job);
+                System.out.println("Enter your first skill:");
+                skill.skill1 = keyboard.nextLine();
+                System.out.println("Enter your second skill:");
+                skill.skill2 = keyboard.nextLine();
+                System.out.println("Enter your third skill:");
+                skill.skill3= keyboard.nextLine();
+                Expertise.add(skill);
 
-                        System.out.println("Here are the work experiences you entered:");
+                System.out.println("Here are the skills and ratings you entered:");
 
-                        for (Job jobs : Experience)
-                        {
-                            System.out.println(job.title);
-                            System.out.println(job.place + " " + "," + " " + " " + job.date);
-                            System.out.println(job.duty1);
-                            System.out.println(job.duty2);
-                        }
+                for (Skill skills : Expertise)
+                {
+                    System.out.println(skill.skill1);
+                    System.out.println(skill.skill2);
+                    System.out.println(skill.skill3);
 
-                    }
+                }
+
+                // Print all variables
+                System.out.println("Education");
+                System.out.print(college.degree);
+                System.out.print(" " + "in" + " ");
+                System.out.println(college.major);
+                System.out.print(college.name);
+                System.out.println(" " + "," + college.year);
+                System.out.println(" ");
+                System.out.println("Experience");
+                System.out.print(job.title);
+                System.out.print(job.place + " " + "," + " " + " " + job.date);
+                System.out.println(job.duty1);
+                System.out.println(job.duty2);
+                System.out.println(" ");
+                System.out.println("Skills");
+                System.out.println(skill.skill1);
+                System.out.println(skill.skill2);
+                System.out.println(skill.skill3);
 
 
-                }while (answer.equalsIgnoreCase("y")) ;
 
-            }while (answer.equalsIgnoreCase("y"));
+        }
 
-        }while (answer.equalsIgnoreCase("y"));
+
     }
 }
+
+
+
+
