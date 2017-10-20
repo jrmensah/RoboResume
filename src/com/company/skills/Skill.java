@@ -1,22 +1,33 @@
 package com.company.skills;
 
 public class Skill {
-    private String skill;
-    private String level;
+    public String skill1;
+    public String skill2;
+    public String skill3;
 
-    public String getSkill() {
-        return skill;
+    public String getSkill1() {
+        return skill1;
     }
 
-    public void setSkill(String skill) {
-        this.skill = skill;
+    public void setSkill1(String skil1l) {
+        this.skill1 = skill1;
     }
 
-    public String getLevel() {
-        return level;
+    public String getSkill2() {
+        return skill2;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+    public void setSkill2(String skill2) {
+        this.skill2 = skill2;
     }
+
+    public String getSkill3() {
+        return skill3;
+    }
+
+    public void setSkill3(String skill3) {
+        this.skill3 = skill3;
+    }
+
+
 }

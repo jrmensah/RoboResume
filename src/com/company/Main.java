@@ -6,7 +6,7 @@ import com.company.skills.Skill;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Level;
+
 
 public class Main {
 
@@ -17,9 +17,9 @@ public class Main {
         Scanner keyboard = new Scanner(System.in);
 
 
-        ArrayList<College> Education = new ArrayList<College>();
-        ArrayList<Job> Experience = new ArrayList<Job>();
-        ArrayList<Skill> Expertise = new ArrayList<Skill>();
+        ArrayList<College> education = new ArrayList<College>();
+        ArrayList<Job> experience = new ArrayList<Job>();
+        ArrayList<Skill> expertise = new ArrayList<Skill>();
 
 
         int size = 20;
@@ -32,7 +32,7 @@ public class Main {
         // Create a new person for resume
         Person person = new Person();
 
-        //Prompt user toenter values into the program
+        //Prompt user to enter values into the program
         System.out.println("Welcome to the RoboResume!");
         System.out.println("Please enter your name, email, education, work experiences and skills with the rating below");
 
@@ -41,30 +41,44 @@ public class Main {
         System.out.println("Enter your Email:");
         person.setName(keyboard.nextLine());
         System.out.println("Education Achievements:");
-        System.out.println("");
 
-        if (answer.equalsIgnoreCase("y")) {
-            System.out.println("Enter the Degree of College");
-            college.degree = keyboard.nextLine();
-            System.out.println("Enter Major at College:");
-            college.major = keyboard.nextLine();
-            System.out.println("Enter Name of College:");
-            college.name = keyboard.nextLine();
-            System.out.println("Enter the year of Graduation");
-            college.year = keyboard.nextInt();
-            Education.add(college);
+        while (answer.equalsIgnoreCase("y"))
+        {
+            System.out.println("Do you want to enter a school?");
+            answer = keyboard.nextLine();
+            keyboard.nextLine();
 
-            //Print all college entries
-            System.out.println("Here are the education achievements you entered:");
 
-            for (College colleges : Education) {
-                System.out.print(college.degree);
-                System.out.print(" " + "in" + " ");
-                System.out.println(college.major);
-                System.out.print(college.name);
-                System.out.println(" " + "," + college.year);
+            if(answer.equalsIgnoreCase("y"))
+            {
+                System.out.println("Enter the Degree of College");
+                college.degree = keyboard.nextLine();
+                System.out.println("Enter Major at College:");
+                college.major = keyboard.nextLine();
+                System.out.println("Enter Name of College:");
+                college.name = keyboard.nextLine();
+                System.out.println("Enter the year of Graduation");
+                college.year = keyboard.nextInt();
+                education.add(college);
             }
+
         }
+            System.out.println("Do you want to enter a school?");
+            answer = keyboard.nextLine();
+
+
+        //Print all college entries
+        System.out.println("Here are the education achievements you entered:");
+
+        for (College colleges : education)
+        {
+            System.out.print(college.degree);
+            System.out.print(" " + "in" + " ");
+            System.out.println(college.major);
+            System.out.print(college.name);
+            System.out.println(" " + "," + college.year); }
+
+
             while(answer.equalsIgnoreCase("y"))
             {
                 System.out.println("Do you want to add a work experience?");
@@ -85,11 +99,12 @@ public class Main {
                 job.duty1 = keyboard.nextLine();
                 System.out.println("Enter the second duty of work");
                 job.duty2 = keyboard.nextLine();
-                Experience.add(job);
+                experience.add(job);
 
+                //Print all job entries
                 System.out.println("Here are the work experiences you entered:");
 
-                for (Job jobs : Experience) {
+                for (Job jobs : experience) {
                     System.out.print(job.title);
                     System.out.print(job.place + " " + "," + " " + " " + job.date);
                     System.out.println(job.duty1);
@@ -97,7 +112,6 @@ public class Main {
 
                 }
             }
-
                 while(!answer.equalsIgnoreCase("n"))
                 {
                     System.out.println("Do you want to add a work experience?");
@@ -109,7 +123,8 @@ public class Main {
             {
                 System.out.println("Do you want to add a skill?");
                 answer = keyboard.nextLine();
-            }if (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("n")) {
+            }
+            if (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("n")) {
                 System.out.println("Invalid option. Please enter 'Y' or 'N' ");
             }
             if (answer.equalsIgnoreCase("y")) {
@@ -120,11 +135,12 @@ public class Main {
                 skill.skill2 = keyboard.nextLine();
                 System.out.println("Enter your third skill:");
                 skill.skill3= keyboard.nextLine();
-                Expertise.add(skill);
+                expertise.add(skill);
 
+                //Print all skills with ratings
                 System.out.println("Here are the skills and ratings you entered:");
 
-                for (Skill skills : Expertise)
+                for (Skill skills : expertise)
                 {
                     System.out.println(skill.skill1);
                     System.out.println(skill.skill2);
