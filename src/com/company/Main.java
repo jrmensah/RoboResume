@@ -93,7 +93,6 @@ public class Main {
                     job.duty1 = keyboard.nextLine();
                     System.out.println("Enter your second duty");
                     job.duty2 = keyboard.nextLine();
-                    keyboard.nextLine();
                     experience.add(job);
                     System.out.println("Do you want to enter a work experience?");
                     answer = keyboard.nextLine();
@@ -122,7 +121,6 @@ public class Main {
                 skill.skill2 = keyboard.nextLine();
                 System.out.println("Enter your third skill:");
                 skill.skill3 = keyboard.nextLine();
-                keyboard.nextLine();
                 expertise.add(skill);
                 System.out.println("Do you want to enter a set of skills?");
                 answer = keyboard.nextLine();
@@ -144,6 +142,7 @@ public class Main {
             }
 
             // Print all variables
+            System.out.println("");
             System.out.println(person.getName());
             System.out.println(person.getEmail());
             System.out.println("");
@@ -155,8 +154,8 @@ public class Main {
             System.out.println(" " + "," + college.year);
             System.out.println(" ");
             System.out.println("Experience");
-            System.out.print(job.title);
-            System.out.print(job.place + " " + "," + " " + " " + job.date);
+            System.out.println(job.title);
+            System.out.println(job.place + " " + "," + " " + " " + job.date);
             System.out.println(job.duty1);
             System.out.println(job.duty2);
             System.out.println(" ");
