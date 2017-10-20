@@ -1,7 +1,8 @@
-package com.company;
+package com.company.jobs;
 
 public class Job {
     public String title;
+    public String place;
     public String date;
     public String duty1;
     public String duty2;
@@ -12,6 +13,14 @@ public class Job {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
     }
 
     public String getDate() {
